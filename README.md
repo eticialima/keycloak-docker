@@ -1,38 +1,24 @@
-# Keycloak com PostgreSQL
+# Keycloak Local Setup
 
-Este projeto configura um ambiente Keycloak completo usando Docker Compose com banco de dados PostgreSQL.
+Simple Keycloak setup for local development with PostgreSQL.
 
-## O que faz
+![Keycloak Panel](doc/preview1.png)
 
-- **Keycloak**: Servidor de autenticação e autorização (Identity Provider)
-- **PostgreSQL**: Banco de dados para persistir dados do Keycloak
-- **Rede isolada**: Comunicação segura entre os serviços
+## What it starts
 
-## Como usar
+- Keycloak on `http://localhost:8080`
+- PostgreSQL on `localhost:5433`
 
-1. **Iniciar os serviços:**
-   ```bash
-   docker-compose up -d
-   ```
+## Start
 
-2. **Acessar o Keycloak:**
-   - URL: http://localhost:8080
-   - Admin: `admin`
-   - Senha: `admin`
+```bash
+cp env_example .env
+docker compose up -d
+```
 
-3. **Parar os serviços:**
-   ```bash
-   docker-compose down
-   ```
+## Default login
 
-## Configuração
+- Username: `admin`
+- Password: `admin`
 
-- **Keycloak**: Porta 8080 (HTTP) e 8443 (HTTPS)
-- **PostgreSQL**: Porta 5433 (para evitar conflitos com outras instâncias)
-- **Dados**: Persistidos no volume `pgdata`
-
-## Notas
-
-- Configurado em modo desenvolvimento (`start-dev`)
-- Health checks e métricas habilitadas
-- PostgreSQL usa porta 5433 no host para evitar conflitos
+Change these values in `.env` if needed.
